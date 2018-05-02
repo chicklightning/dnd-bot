@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='dnd ')
@@ -17,9 +18,21 @@ async def roll(context, a: int, b: int):
     await context.send(a + b)
 
 
+@roll.error
+async def roll_error(context, error):
+    if isinstance(error, commands.BadArgument):
+        await context.send()  # TODO: SEND REPLY ABOUT ERROR
+
+
 @bot.command()
 async def find(context, a: int, b: int):
     await context.send()  # TODO: SEND REPLY TO QUERY FROM ROLL20
+
+
+@find.error
+async def find_error(context, error):
+    if isinstance(error, commands.BadArgument):
+        await context.send()  # TODO: SEND REPLY ABOUT ERROR
 
 
 @bot.command()
