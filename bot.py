@@ -1,5 +1,6 @@
 import discord
 import random
+import token
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='dnd ')
@@ -68,4 +69,4 @@ async def help(context):
     await context.send(embed=embed)
 
 
-bot.run('NDE0MzIyMDQ1MzA0OTYzMDcy.DWl2qw.nTxSDf9wIcf42te4uSCMuk2VDa0')
+bot.run(token)
