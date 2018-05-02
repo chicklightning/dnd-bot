@@ -9,7 +9,11 @@ bot = commands.Bot(command_prefix='dnd ')
 
 @bot.event
 async def on_ready():
-    print('Logged in as ' + bot.user.name + ' with bot id ' + bot.user.id + '.')
+    print('Logged in as ', end='')
+    print(bot.user.name, end='')
+    print(' with bot id ', end='')
+    print(bot.user.id, end='')
+    print('.\n', end='')
     print('Listening for contexts.')
 
 
