@@ -1,39 +1,25 @@
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='$')
+bot = commands.Bot(command_prefix='dnd ')
 
 
 @bot.event
 async def on_ready():
-    print('Logged in as')
+    print('Logged in as ')
     print(bot.user.name)
     print(bot.user.id)
     print('------')
 
 
 @bot.command()
-async def add(ctx, a: int, b: int):
-    await
-    ctx.send(a + b)
+async def roll(reply, a: int, b: int):
+    await reply.send(a + b)
 
 
 @bot.command()
-async def multiply(ctx, a: int, b: int):
-    await
-    ctx.send(a * b)
-
-
-@bot.command()
-async def greet(ctx):
-    await
-    ctx.send(":smiley: :wave: Hello, there!")
-
-
-@bot.command()
-async def cat(ctx):
-    await
-    ctx.send("https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif")
+async def find(reply, a: int, b: int):
+    await reply.send() # TODO: SEND REPLY TO QUERY FROM ROLL20
 
 
 @bot.command()
@@ -49,8 +35,7 @@ async def info(ctx):
     # give users a link to invite thsi bot to their server
     embed.add_field(name="Invite", value="[Invite link](<insert your OAuth invitation link here>)")
 
-    await
-    ctx.send(embed=embed)
+    await ctx.send(embed=embed)
 
 
 bot.remove_command('help')
@@ -67,8 +52,7 @@ async def help(ctx):
     embed.add_field(name="$info", value="Gives a little info about the bot", inline=False)
     embed.add_field(name="$help", value="Gives this message", inline=False)
 
-    await
-    ctx.send(embed=embed)
+    await ctx.send(embed=embed)
 
 
 bot.run('NDE0MzIyMDQ1MzA0OTYzMDcy.DWl2qw.nTxSDf9wIcf42te4uSCMuk2VDa0')
