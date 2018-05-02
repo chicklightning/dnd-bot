@@ -47,7 +47,7 @@ async def info(context):
     embed.add_field(name="Authors", value="[chicklightning](https://github.com/chicklightning) and [sweetkevindan](https://github.com/kevSweet)")
 
     # Shows the number of servers the bot is member of
-    embed.add_field(name="Number of Servers", value='{num}'.format(num=bot.guilds))
+    embed.add_field(name="Number of Servers", value='{num}'.format(num=len(bot.guilds)))
 
     # show our resources
     embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)")
