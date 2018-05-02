@@ -1,6 +1,7 @@
 import discord
 import random
 import token
+import os
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='dnd ')
@@ -59,7 +60,7 @@ bot.remove_command('help')
 async def help(context):
     embed = discord.Embed(title="D&D Bot", description="You fuckin' nerd(s).", color=0x72e0d3)
 
-    embed.add_field(name="$add X Y", value="Gives the addition of **X** and **Y**", inline=False)
+    embed.add_field(name="dnd", value="Use to call the bot! Follow this with any of the commands below.", inline=False)
     embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
     embed.add_field(name="$greet", value="Gives a nice greet message", inline=False)
     embed.add_field(name="$cat", value="Gives a cute cat gif to lighten up the mood.", inline=False)
@@ -69,4 +70,4 @@ async def help(context):
     await context.send(embed=embed)
 
 
-bot.run(token)
+bot.run(os.getenv('TOKEN'), token)
