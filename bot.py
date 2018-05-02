@@ -50,13 +50,13 @@ async def info(context):
     embed.add_field(name="Number of Servers", value="{len(self.bot.servers)}")
 
     # show our resources
-    embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)")
+    embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)", inline=False)
 
     # give users a link to invite this bot to their server
-    embed.add_field(name="Invite Others to Use This Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)")
+    embed.add_field(name="Invite Others to Use This Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)", inline=False)
 
     # show our github
-    embed.add_field(name="Source Code", value="[GitHub Repo](https://github.com/chicklightning/dnd-bot)")
+    embed.add_field(name="Source Code", value="[GitHub Repo](https://github.com/chicklightning/dnd-bot)", inline=False)
 
     await context.send(embed=embed)
 
