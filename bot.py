@@ -9,10 +9,8 @@ bot = commands.Bot(command_prefix='dnd ')
 
 @bot.event
 async def on_ready():
-    print('Logged in as ')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
+    print('Logged in as ' + bot.user.name + ' with bot id ' + bot.user.id + '.')
+    print('Listening for contexts.')
 
 
 @bot.command()
@@ -39,16 +37,22 @@ async def find_error(context, error):
 
 @bot.command()
 async def info(context):
-    embed = discord.Embed(title="D&D Bot", description="You fuckin' nerd(s).", color=0x72e0d3)
+    embed = discord.Embed(title="D&D Bot", description="For all your nerd needs.", color=0x72e0d3)
 
     # give info about you here
-    embed.add_field(name="Authors", value="chicklightning and sweetkevindan")
+    embed.add_field(name="Authors", value="[chicklightning](https://github.com/chicklightning) and [sweetkevindan](https://github.com/kevSweet)")
 
-    # Shows the number of servers the bot is member of.
-    embed.add_field(name="Number of Servers", value="{len(bot.guilds)}")
+    # Shows the number of servers the bot is member of
+    embed.add_field(name="Number of Servers", value="{len(self.bot.servers)}")
+
+    # show our resources
+    embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)")
 
     # give users a link to invite this bot to their server
     embed.add_field(name="Invite Others to Use This Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)")
+
+    # show our github
+    embed.add_field(name="Source Code", value="[GitHub Repo](https://github.com/chicklightning/dnd-bot)")
 
     await context.send(embed=embed)
 
@@ -58,7 +62,7 @@ bot.remove_command('help')
 
 @bot.command()
 async def help(context):
-    embed = discord.Embed(title="D&D Bot", description="You fuckin' nerd(s).", color=0x72e0d3)
+    embed = discord.Embed(title="D&D Bot", description="For all your nerd needs.", color=0x72e0d3)
 
     embed.add_field(name="dnd", value="Use to call the bot! Follow this with any of the commands below.", inline=False)
     embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
