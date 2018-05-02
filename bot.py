@@ -13,37 +13,37 @@ async def on_ready():
 
 
 @bot.command()
-async def roll(reply, a: int, b: int):
-    await reply.send(a + b)
+async def roll(context, a: int, b: int):
+    await context.send(a + b)
 
 
 @bot.command()
-async def find(reply, a: int, b: int):
-    await reply.send() # TODO: SEND REPLY TO QUERY FROM ROLL20
+async def find(context, a: int, b: int):
+    await context.send()  # TODO: SEND REPLY TO QUERY FROM ROLL20
 
 
 @bot.command()
-async def info(ctx):
-    embed = discord.Embed(title="nice bot", description="Nicest bot there is ever.", color=0xeee657)
+async def info(context):
+    embed = discord.Embed(title="D&D Bot", description="You fuckin' nerd(s).", color=0x72e0d3)
 
     # give info about you here
-    embed.add_field(name="Author", value="<YOUR-USERNAME>")
+    embed.add_field(name="Authors", value="chicklightning and sweetkevindan")
 
     # Shows the number of servers the bot is member of.
-    embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
+    embed.add_field(name="Number of Servers", value="{len(bot.guilds)}")
 
-    # give users a link to invite thsi bot to their server
-    embed.add_field(name="Invite", value="[Invite link](<insert your OAuth invitation link here>)")
+    # give users a link to invite this bot to their server
+    embed.add_field(name="Invite Others to Use This Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)")
 
-    await ctx.send(embed=embed)
+    await context.send(embed=embed)
 
 
 bot.remove_command('help')
 
 
 @bot.command()
-async def help(ctx):
-    embed = discord.Embed(title="nice bot", description="A Very Nice bot. List of commands are:", color=0xeee657)
+async def help(context):
+    embed = discord.Embed(title="D&D Bot", description="You fuckin' nerd(s).", color=0x72e0d3)
 
     embed.add_field(name="$add X Y", value="Gives the addition of **X** and **Y**", inline=False)
     embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
@@ -52,7 +52,7 @@ async def help(ctx):
     embed.add_field(name="$info", value="Gives a little info about the bot", inline=False)
     embed.add_field(name="$help", value="Gives this message", inline=False)
 
-    await ctx.send(embed=embed)
+    await context.send(embed=embed)
 
 
 bot.run('NDE0MzIyMDQ1MzA0OTYzMDcy.DWl2qw.nTxSDf9wIcf42te4uSCMuk2VDa0')
