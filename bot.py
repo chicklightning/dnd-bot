@@ -69,5 +69,5 @@ async def help(context):
 
     await context.send(embed=embed)
 
-
+print(os.environ['TOKEN'])
 bot.run(os.getenv('TOKEN'), token)
