@@ -50,21 +50,21 @@ async def info(context):
     embed.add_field(name="Number of Servers", value="{len(self.bot.servers)}")
 
     # show our resources
-    embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)", inline=False)
+    embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)")
 
     # give users a link to invite this bot to their server
-    embed.add_field(name="Invite Others to Use This Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)", inline=False)
+    embed.add_field(name="Invite for Bot", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=441011381068627969&permissions=55296&scope=bot)")
 
     # show our github
-    embed.add_field(name="Source Code", value="[GitHub Repo](https://github.com/chicklightning/dnd-bot)", inline=False)
+    embed.add_field(name="Source Code", value="[GitHub Repo](https://github.com/chicklightning/dnd-bot)")
 
     await context.send(embed=embed)
 
 
 bot.remove_command('help')
 
-
 @bot.command()
+
 async def help(context):
     embed = discord.Embed(title="D&D Bot", description="For all your nerd needs.", color=0x72e0d3)
 
