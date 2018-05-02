@@ -47,7 +47,7 @@ async def info(context):
     embed.add_field(name="Authors", value="[chicklightning](https://github.com/chicklightning) and [sweetkevindan](https://github.com/kevSweet)")
 
     # Shows the number of servers the bot is member of
-    embed.add_field(name="Number of Servers", value="{len(self.bot.servers)}")
+    embed.add_field(name="Number of Servers", value=len(bot.servers))
 
     # show our resources
     embed.add_field(name="Reference", value="[Roll20](https://roll20.net/compendium/)")
@@ -63,15 +63,15 @@ async def info(context):
 
 bot.remove_command('help')
 
-@bot.command()
 
+@bot.command()
 async def help(context):
     embed = discord.Embed(title="D&D Bot", description="For all your nerd needs.", color=0x72e0d3)
 
     embed.add_field(name="dnd", value="Use to call the bot! Follow this with any of the commands below.", inline=False)
-    embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
-    embed.add_field(name="$greet", value="Gives a nice greet message", inline=False)
-    embed.add_field(name="$cat", value="Gives a cute cat gif to lighten up the mood.", inline=False)
+    # embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
+    # embed.add_field(name="$greet", value="Gives a nice greet message", inline=False)
+    # embed.add_field(name="$cat", value="Gives a cute cat gif to lighten up the mood.", inline=False)
     embed.add_field(name="$info", value="Gives a little info about the bot", inline=False)
     embed.add_field(name="$help", value="Gives this message", inline=False)
 
