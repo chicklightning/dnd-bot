@@ -72,8 +72,8 @@ async def help(context):
     # embed.add_field(name="$multiply X Y", value="Gives the multiplication of **X** and **Y**", inline=False)
     # embed.add_field(name="$greet", value="Gives a nice greet message", inline=False)
     # embed.add_field(name="$cat", value="Gives a cute cat gif to lighten up the mood.", inline=False)
-    embed.add_field(name="info", value="Gives a little info about the bot and its authors.", inline=False)
-    embed.add_field(name="help", value="Gives this message", inline=False)
+    embed.add_field(name="dnd info", value="Gives a little info about the bot and its authors.", inline=False)
+    embed.add_field(name="dnd help", value="Gives this message.", inline=False)
 
     await context.send(embed=embed)
 
