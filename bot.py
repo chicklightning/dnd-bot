@@ -1,5 +1,6 @@
 import discord
 import random
+from bs4 import BeautifulSoup
 import token
 import os
 from discord.ext import commands
@@ -29,9 +30,9 @@ async def roll_error(context, error):
 
 
 @bot.command()
-async def find(context, string query):
+async def find(context, qry):
 
-    embed = discord.Embed(title="Search Results for " + query)
+    embed = discord.Embed(title="Search Results for " + qry, description="test", color=0x72e0d3)
 
     await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
 
