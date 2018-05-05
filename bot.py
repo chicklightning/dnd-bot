@@ -29,8 +29,11 @@ async def roll_error(context, error):
 
 
 @bot.command()
-async def find(context, a: int, b: int):
-    await context.send()  # TODO: SEND REPLY TO QUERY FROM ROLL20
+async def find(context, string query):
+
+    embed = discord.Embed(title="Search Results for " + query)
+
+    await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
 
 
 @find.error
