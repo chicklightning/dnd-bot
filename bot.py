@@ -34,15 +34,14 @@ async def find(context, qry):
     session = HTMLSession()
     goog_search = qry.replace(" ", "+")
     goog_search = goog_search + "+d20pfsrd"
-    goog_search = "https://www.google.co.uk/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + goog_search
+    goog_search = "https://www.google.com/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + goog_search
 
     r = session.get(goog_search)
 
     session.close()
     embed = discord.Embed(title="Search Results for " + qry, description=r.html.find('cite')[0].text, color=0x72e0d3)
 
-    await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
-
+    await context.send(embed=embed)  # TODO: ALLOW MULTI-WORD QUERIES WITHOUT QUOTATION MARKS. THEN SPEECH2TEXT
 
 @find.error
 async def find_error(context, error):
