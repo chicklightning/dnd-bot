@@ -1,6 +1,6 @@
 import discord
 import random
-from bs4 import BeautifulSoup
+from requests_html import HTMLSession
 import token
 import os
 from discord.ext import commands
@@ -31,8 +31,15 @@ async def roll_error(context, error):
 
 @bot.command()
 async def find(context, qry):
+    session = HTMLSession()
+    qry = qry + "+d20pfsrd"
+    goog_search = "https://www.google.co.uk/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + qry
 
-    qry = qry + "d20pfsrd"
+    r = session.get(goog_search)
+
+    print(r.html.find('cite')[0].text)
+
+    session.close()
     embed = discord.Embed(title="Search Results for " + qry, description="test", color=0x72e0d3)
 
     await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
