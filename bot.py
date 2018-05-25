@@ -32,16 +32,14 @@ async def roll_error(context, error):
 @bot.command()
 async def find(context, qry):
     session = HTMLSession()
-    qry = qry.replace(" ", "+")
-    qry = qry + "+d20pfsrd"
-    goog_search = "https://www.google.co.uk/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + qry
+    goog_search = qry.replace(" ", "+")
+    goog_search = goog_search + "+d20pfsrd"
+    goog_search = "https://www.google.co.uk/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + goog_search
 
     r = session.get(goog_search)
 
-    print(r.html.find('cite')[0].text)
-
     session.close()
-    embed = discord.Embed(title="Search Results for " + qry, description="test", color=0x72e0d3)
+    embed = discord.Embed(title="Search Results for " + qry, description=r.html.find('cite')[0].text, color=0x72e0d3)
 
     await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
 
