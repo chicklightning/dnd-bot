@@ -32,6 +32,7 @@ async def roll_error(context, error):
 @bot.command()
 async def find(context, qry):
 
+    qry = qry + "d20pfsrd"
     embed = discord.Embed(title="Search Results for " + qry, description="test", color=0x72e0d3)
 
     await context.send(embed=embed)  # TODO: SEND REPLY TO QUERY FROM ROLL20
