@@ -30,7 +30,7 @@ async def roll_error(context, error):
 
 
 @bot.command()
-async def find(context, qry):
+async def find(context, *, qry):
     session = HTMLSession()
     goog_search = qry.replace(" ", "+")
     goog_search = goog_search + "+d20pfsrd"
