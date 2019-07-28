@@ -20,7 +20,13 @@ async def on_ready():
 
 @bot.command()
 async def roll(context, a: int, b: int):
-    await context.send(a + b)
+    rollRequest = "Rolling " + a + " d" + b + "s..."
+    rollResult = "";
+    for x in range(a):
+        rollResult += random.randint(1, b) + ", "
+
+    embed = discord.Embed(title=rollRequest, description=rollResult, color=0x72e0d3)
+    await context.send(embed)
 
 
 @roll.error
@@ -84,6 +90,8 @@ async def help(context):
     # embed.add_field(name="$cat", value="Gives a cute cat gif to lighten up the mood.", inline=False)
     embed.add_field(name="dnd info", value="Gives a little info about the bot and its authors.", inline=False)
     embed.add_field(name="dnd help", value="Gives this message.", inline=False)
+    embed.add_field(name="dnd find <search term>", value="Finds a relevant article from D20 Pathfinder SRD.", inline=False)
+    embed.add_field(name="dnd roll <number of die> <number of sides", value="Will roll x number of d\"y\" die.", inline=False)
 
     await context.send(embed=embed)
 
